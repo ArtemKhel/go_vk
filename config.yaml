@@ -1,0 +1,17 @@
+sub_pub:
+  # Channel buffer size for each subscriber
+  buffer_size: 64
+
+grpc_server:
+  port: 8080
+  # Shutdown timeout
+  timeout: "5s"
+  # Maximum message size in bytes
+  max_message_size: 1048576
+
+log:
+  level: "debug"
+  # Log output format: "text" - plaintext, "json"
+  format: "text"
+  # "stdout", "stderr", filepath
+  output: "stdout"

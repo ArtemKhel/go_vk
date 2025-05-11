@@ -1,0 +1,17 @@
+services:
+  pubsub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pubsub/pubsub:latest
+    container_name: pubsub_container
+    ports:
+      - "${GRPC_HOST_PORT:-8080}:${APP_CONTAINER_PORT:-8080}"
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+#    environment:
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
